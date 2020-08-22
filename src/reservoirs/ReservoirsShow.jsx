@@ -4,7 +4,7 @@ import { Typography, Card, CardContent, Box } from '@material-ui/core';
 import moment from 'moment';
 
 const ReservoirTitle = ({ record }) => {
-  return <span>Edit Reservoir {record ? `"${record.name}"` : ""}</span>;
+  return <span>Reservoir {record ? `"${record.name}"` : ""}</span>;
 };
 
 const Aside = ({ record }) => (

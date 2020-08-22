@@ -4,8 +4,10 @@ import DRFWDataProvider from "./dataProvider";
 import AuthProvider from "./authProvider";
 import Dashboard from "./dashboard";
 import { Layout, NotFound } from "./layout";
+import customRoutes from "./routes";
 
 import Reservoirs from "./reservoirs";
+import WaterLevel from "./water_level";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -30,7 +32,9 @@ const App = () => (
     dashboard={Dashboard}
     catchAll={NotFound}
     layout={Layout}
+    customRoutes={customRoutes}
   >
+    <Resource name="water_level" {...WaterLevel} />
     <Resource name="reservoirs" {...Reservoirs} />
   </Admin>
 );
