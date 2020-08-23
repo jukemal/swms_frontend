@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Layout } from 'react-admin';
 import { lightTheme, darkTheme } from './themes'
 import SideBar from './SideBar';
+import Menu from './Menu';
 
 export default (props) => {
     const theme = useSelector((state) =>
@@ -13,6 +14,7 @@ export default (props) => {
             {...props}
             theme={theme}
             sidebar={SideBar}
+            menu={Menu}
         />
     );
 };

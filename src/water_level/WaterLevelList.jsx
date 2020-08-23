@@ -5,8 +5,6 @@ import {
     TextField,
     NumberField,
     downloadCSV,
-    Filter,
-    TextInput,
     FunctionField,
 } from "react-admin";
 import jsonExport from "jsonexport/dist";
@@ -53,20 +51,11 @@ const exporter = (waterLevel) => {
     );
 };
 
-const WaterLevelFilter = (props) => (
-    <Filter {...props}>
-        <TextInput label="Search" source="q" alwaysOn />
-        {/* TODO : Add autocomplete. */}
-        <TextInput label="Reservoir Name" source="reservoir_name" />
-    </Filter>
-);
-
 const WaterLevelList = (props) => (
     <List
         {...props}
         title="Water Level & Water Consumption"
         exporter={exporter}
-        filters={<WaterLevelFilter />}
         perPage={25}
     >
         <Datagrid rowClick="show">
