@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { stringify } from "query-string";
 import { useQueryWithStore, Loading, Error, Title as AdminTitle } from 'react-admin';
 import { makeStyles } from '@material-ui/core/styles';
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
@@ -25,7 +24,7 @@ const ReservoirsSelect = () => {
         payload: {
             pagination: {
                 page: 1,
-                perPage: 50,
+                perPage: 25,
             },
             sort: {
                 field: "name",
@@ -43,7 +42,7 @@ const ReservoirsSelect = () => {
 
     return (
         <>
-            <AdminTitle title="Water Level - Select Reservoir" />
+            <AdminTitle title="Water Level Prediction - Select Reservoir" />
             <div className={classes.root}>
                 <List component="nav" >
                     {
@@ -52,12 +51,7 @@ const ReservoirsSelect = () => {
                                 key={n.id}
                                 component={Link}
                                 to={{
-                                    pathname: '/water_level',
-                                    search: stringify({
-                                        page: 1,
-                                        perPage: 25,
-                                        filter: JSON.stringify({ reservoir_name: n.name }),
-                                    }),
+                                    pathname: `/water_level_prediction/${n.id}/`
                                 }}
                             >
                                 <ListItemIcon>

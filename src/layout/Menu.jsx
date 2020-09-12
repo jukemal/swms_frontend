@@ -18,6 +18,15 @@ const Menu = ({ onMenuClick, dense, logout }) => {
             <DashboardMenuItem onClick={onMenuClick} sidebarIsOpen={open} />
 
             <MenuItemLink
+                to={`/reservoirs_select_water_level_prediction`}
+                primaryText="Water Level Prediction"
+                leftIcon={<OpacityIcon />}
+                onClick={onMenuClick}
+                sidebarIsOpen={open}
+                dense={dense}
+            />
+
+            <MenuItemLink
                 to={`/reservoirs_select`}
                 primaryText="Water Level"
                 leftIcon={<OpacityIcon />}
