@@ -102,7 +102,7 @@ const Chart = ({ data_real, data_predicted, reservoir }) => {
 
     return (
         <>
-            <Title>{`Water Level Prediction - ${reservoir.name}`}</Title>
+            <Title>{`Water Consumption Prediction - ${reservoir.name}`}</Title>
             <ResponsiveContainer width='95%' height={500}>
                 <LineChart
                     margin={{
@@ -145,7 +145,7 @@ const DataTable = ({ rows_real, rows_predicted, reservoir }) => {
 
     return (
         <>
-            <Title>{`Water Level Prediction - ${reservoir.name}`}</Title>
+            <Title>{`Water Consumption Prediction - ${reservoir.name}`}</Title>
             <TableContainer >
                 <Table size="small">
                     <TableHead>
@@ -175,7 +175,7 @@ const DataTable = ({ rows_real, rows_predicted, reservoir }) => {
 };
 
 
-const WaterLevelPrediction = (props) => {
+const WaterConsumptionPrediction = (props) => {
     const classes = useStyles();
 
     let { id } = useParams();
@@ -216,4 +216,4 @@ const WaterLevelPrediction = (props) => {
     );
 }
 
-export default WaterLevelPrediction;
+export default WaterConsumptionPrediction;
