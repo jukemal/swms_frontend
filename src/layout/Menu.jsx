@@ -4,8 +4,9 @@ import { DashboardMenuItem, MenuItemLink } from 'react-admin';
 import OpacityIcon from "@material-ui/icons/Opacity";
 import WavesIcon from '@material-ui/icons/Waves';
 import TextureIcon from '@material-ui/icons/Texture';
-// import SportsGolfIcon from '@material-ui/icons/SportsGolf';
-// import SpaIcon from '@material-ui/icons/Spa';
+import SpaIcon from '@material-ui/icons/Spa';
+import AcUnitIcon from '@material-ui/icons/AcUnit';
+import AllOutIcon from '@material-ui/icons/AllOut';
 
 import Reservoirs from '../reservoirs'
 
@@ -39,7 +40,7 @@ const Menu = ({ onMenuClick, dense, logout }) => {
             <MenuItemLink
                 to={`/reservoirs_select_domestic_water_consumption_prediction`}
                 primaryText="Domestic Water Consumption Prediction"
-                leftIcon={<TextureIcon />}
+                leftIcon={<AcUnitIcon />}
                 onClick={onMenuClick}
                 sidebarIsOpen={open}
                 dense={dense}
@@ -48,7 +49,16 @@ const Menu = ({ onMenuClick, dense, logout }) => {
             <MenuItemLink
                 to={`/reservoir_select_domestic_water_distribution_plan`}
                 primaryText="Domestic Water Distribution Plan"
-                leftIcon={<TextureIcon />}
+                leftIcon={<SpaIcon />}
+                onClick={onMenuClick}
+                sidebarIsOpen={open}
+                dense={dense}
+            />
+
+            <MenuItemLink
+                to={`/paddy_water_distribution_plan`}
+                primaryText="Paddy Water Distribution Plan"
+                leftIcon={<AllOutIcon />}
                 onClick={onMenuClick}
                 sidebarIsOpen={open}
                 dense={dense}

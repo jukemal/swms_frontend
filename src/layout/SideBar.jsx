@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useSidebarStyles = makeStyles({
     drawerPaper: {
         backgroundColor: '#eeeeee',
+        width: '380px'
     },
 });
 
