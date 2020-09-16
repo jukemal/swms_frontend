@@ -102,7 +102,7 @@ const Chart = ({ data_real, data_predicted, reservoir }) => {
 
     return (
         <>
-            <Title>{`Water Consumption Prediction - ${reservoir.name}`}</Title>
+            <Title>{`Domestic Water Consumption Prediction`}</Title>
             <ResponsiveContainer width='95%' height={500}>
                 <LineChart
                     margin={{
@@ -140,18 +140,18 @@ const Chart = ({ data_real, data_predicted, reservoir }) => {
     );
 };
 
-const DataTable = ({ rows_real, rows_predicted, reservoir }) => {
+const DataTable = ({ rows_real, rows_predicted, home, reservoir }) => {
     const classes = useStyles();
 
     return (
         <>
-            <Title>{`Water Consumption Prediction - ${reservoir.name}`}</Title>
+            <Title>{`Domestic Water Consumption Prediction`}</Title>
             <TableContainer >
                 <Table size="small">
                     <TableHead>
                         <TableRow>
                             <TableCell>Date</TableCell>
-                            <TableCell>Water Level</TableCell>
+                            <TableCell>Water Consumption</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -175,14 +175,14 @@ const DataTable = ({ rows_real, rows_predicted, reservoir }) => {
 };
 
 
-const WaterConsumptionPrediction = (props) => {
+const DomesticWaterConsumptionPrediction = (props) => {
     const classes = useStyles();
 
     let { id } = useParams();
 
     const { data, loading, error } = useQueryWithStore({
         type: 'getOne',
-        resource: 'water_consumption_prediction',
+        resource: 'domestic_water_level_consumption_prediction',
         payload: { id: id }
     });
 
@@ -192,7 +192,7 @@ const WaterConsumptionPrediction = (props) => {
 
     return (
         <Card>
-            <AdminTitle title={`Water Level Prediction - ${data.reservoir.name}`} />
+            <AdminTitle title={`Domestic Water Consumption Prediction - ${data.home.home_name} - ${data.home.reservoir.name}`} />
             <CardContent>
                 <main className={classes.content}>
                     <div className={classes.appBarSpacer} />
@@ -200,12 +200,12 @@ const WaterConsumptionPrediction = (props) => {
                         <Grid container spacing={3}>
                             <Grid item xs={12}>
                                 <Paper >
-                                    <Chart data_real={data.real} data_predicted={data.predicted} reservoir={data.reservoir} />
+                                    <Chart data_real={data.real} data_predicted={data.predicted} home={data.home} reservoir={data.home.reservoir} />
                                 </Paper>
                             </Grid>
                             <Grid item xs={12}>
                                 <Paper className={classes.paper}>
-                                    <DataTable rows_real={data.real} rows_predicted={data.predicted} reservoir={data.reservoir} />
+                                    <DataTable rows_real={data.real} rows_predicted={data.predicted} home={data.home} reservoir={data.home.reservoir} />
                                 </Paper>
                             </Grid>
                         </Grid>
@@ -216,4 +216,4 @@ const WaterConsumptionPrediction = (props) => {
     );
 }
 
-export default WaterConsumptionPrediction;
+export default DomesticWaterConsumptionPrediction;

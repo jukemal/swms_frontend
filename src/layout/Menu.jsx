@@ -37,6 +37,15 @@ const Menu = ({ onMenuClick, dense, logout }) => {
             />
 
             <MenuItemLink
+                to={`/reservoirs_select_domestic_water_consumption_prediction`}
+                primaryText="Domestic Water Consumption Prediction"
+                leftIcon={<TextureIcon />}
+                onClick={onMenuClick}
+                sidebarIsOpen={open}
+                dense={dense}
+            />
+
+            <MenuItemLink
                 to={`/reservoirs_select`}
                 primaryText="Water Level"
                 leftIcon={<OpacityIcon />}
