@@ -46,6 +46,15 @@ const Menu = ({ onMenuClick, dense, logout }) => {
             />
 
             <MenuItemLink
+                to={`/reservoir_select_domestic_water_distribution_plan`}
+                primaryText="Domestic Water Distribution Plan"
+                leftIcon={<TextureIcon />}
+                onClick={onMenuClick}
+                sidebarIsOpen={open}
+                dense={dense}
+            />
+
+            <MenuItemLink
                 to={`/reservoirs_select`}
                 primaryText="Water Level"
                 leftIcon={<OpacityIcon />}

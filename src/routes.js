@@ -9,6 +9,9 @@ import WaterConsumptionPrediction from "./water_consumption_prediction/WaterCons
 import ReservoirsSelectDomesticWaterConsumptionPrediction from "./domestic_water_consumption_prediction/ReservoirsSelect";
 import HouseSelectDomesticWaterConsumptionPrediction from "./domestic_water_consumption_prediction/HouseSelect";
 import DomesticWaterConsumptionPrediction from "./domestic_water_consumption_prediction/DomesticWaterConsumptionPrediction";
+import ReservoirsSelectDomesticWaterDistributionPlan from "./domestic_water_distribution_plan/ReservoirsSelect";
+import DomesticWaterDistributionPlan from "./domestic_water_distribution_plan/DomesticWaterDistributionPlan";
+
 
 export default [
   <Route
@@ -45,6 +48,16 @@ export default [
     exact
     path="/domestic_water_consumption_prediction/:id"
     component={DomesticWaterConsumptionPrediction}
+  />,
+  <Route
+    exact
+    path="/reservoir_select_domestic_water_distribution_plan"
+    component={ReservoirsSelectDomesticWaterDistributionPlan}
+  />,
+  <Route
+    exact
+    path="/domestic_water_distribution_plan/:id"
+    component={DomesticWaterDistributionPlan}
   />,
   <Route exact path="/reservoirs_select" component={ReservoirsSelect} />,
 ];
