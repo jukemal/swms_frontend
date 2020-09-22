@@ -30,7 +30,8 @@ const exporter = (waterLevel) => {
                 "date",
                 "name",
                 "water_level",
-                "water_consumption",
+                "water_consumption_domestic",
+                "water_consumption_paddy",
                 "rainfall",
                 "temperature",
                 "evaporation",
@@ -39,7 +40,8 @@ const exporter = (waterLevel) => {
                 "Date",
                 "Reservoirs Name",
                 "Water Level",
-                "Water Consumption",
+                "Water Consumption Domestic",
+                "Water Consumption Paddy",
                 "Rainfall",
                 "Temperature",
                 "Evaporation",
@@ -62,7 +64,8 @@ const WaterLevelList = (props) => (
             <FunctionField label="Date" render={record => `${record.date.split('-')[0]} - ${record.date.split('-')[1]}`} />
             <TextField source="reservoir.name" label="Reservoir Name" />
             <NumberField source="water_level" />
-            <NumberField source="water_consumption" />
+            <NumberField source="water_consumption_domestic" />
+            <NumberField source="water_consumption_paddy" />
             <NumberField source="rainfall" />
             <NumberField source="temperature" />
             <NumberField source="evaporation" />
