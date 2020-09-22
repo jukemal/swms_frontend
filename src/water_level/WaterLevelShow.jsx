@@ -37,7 +37,8 @@ const WaterLevelShow = (props) => (
             <FunctionField label="Date" render={record => `${record.date.split('-')[0]} - ${record.date.split('-')[1]}`} />
             <TextField source="reservoir.name" label="Reservoir Name" />
             <TextField source="water_level" />
-            <NumberField source="water_consumption" />
+            <NumberField source="water_consumption_domestic" />
+            <NumberField source="water_consumption_paddy" />
             <NumberField source="rainfall" />
             <NumberField source="temperature" />
             <NumberField source="evaporation" />

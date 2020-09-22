@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import moment from 'moment'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -91,61 +92,75 @@ const PaddyWaterDistributionPlan = (props) => {
                         <Accordion key={n.date}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
-                                id={n.tank}
+                                id={n.date}
                             >
-                                <Typography className={classes.accordionHeading}>{n.tank}</Typography>
+                                <Typography className={classes.accordionHeading}>{moment(n.date).format('YYYY MMMM')}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                <List >
-                                    <ListItem button>
-                                        <ListItemIcon>
-                                            <FiberManualRecordIcon />
-                                        </ListItemIcon>
-                                        <ListItemText primary={`Tank - ${n.tank}`} />
-                                    </ListItem>
-                                    <ListItem button>
-                                        <ListItemIcon>
-                                            <FiberManualRecordIcon />
-                                        </ListItemIcon>
-                                        <ListItemText primary={`Full Capacity - ${n.full_capacity}`} />
-                                    </ListItem>
-                                    <ListItem button>
-                                        <ListItemIcon>
-                                            <FiberManualRecordIcon />
-                                        </ListItemIcon>
-                                        <ListItemText primary={`Water Needed - ${n.schema_water_needed}`} />
-                                    </ListItem>
-                                    <ListItem button>
-                                        <ListItemIcon>
-                                            <FiberManualRecordIcon />
-                                        </ListItemIcon>
-                                        <ListItemText primary={`Current Capacity - ${n.current_capacity}`} />
-                                    </ListItem>
-                                    <ListItem button>
-                                        <ListItemIcon>
-                                            <FiberManualRecordIcon />
-                                        </ListItemIcon>
-                                        <ListItemText primary={`From Nachchiduwa - ${n.from_nachchiduwa}`} />
-                                    </ListItem>
-                                    <ListItem button>
-                                        <ListItemIcon>
-                                            <FiberManualRecordIcon />
-                                        </ListItemIcon>
-                                        <ListItemText primary={`From Nuwara Wewa - ${n.from_nuwarawewa}`} />
-                                    </ListItem>
-                                    <ListItem button>
-                                        <ListItemIcon>
-                                            <FiberManualRecordIcon />
-                                        </ListItemIcon>
-                                        <ListItemText primary={`From Thisa Wewa - ${n.from_thisawewa}`} />
-                                    </ListItem>
-                                    <ListItem button>
-                                        <ListItemIcon>
-                                            <FiberManualRecordIcon />
-                                        </ListItemIcon>
-                                        <ListItemText primary={`From Thuruwila - ${n.from_thuruwila}`} />
-                                    </ListItem>
-                                </List>
+                                <div className={classes.accordionRoot}>
+                                    {n.data.map(n =>
+                                        <Accordion key={n.tank}>
+                                            <AccordionSummary
+                                                expandIcon={<ExpandMoreIcon />}
+                                                id={n.tank}
+                                            >
+                                                <Typography className={classes.accordionHeading}>{n.tank}</Typography>
+                                            </AccordionSummary>
+                                            <AccordionDetails>
+                                                <List >
+                                                    <ListItem button>
+                                                        <ListItemIcon>
+                                                            <FiberManualRecordIcon />
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={`Tank - ${n.tank}`} />
+                                                    </ListItem>
+                                                    <ListItem button>
+                                                        <ListItemIcon>
+                                                            <FiberManualRecordIcon />
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={`Full Capacity - ${n.full_capacity}`} />
+                                                    </ListItem>
+                                                    <ListItem button>
+                                                        <ListItemIcon>
+                                                            <FiberManualRecordIcon />
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={`Water Needed - ${n.schema_water_needed}`} />
+                                                    </ListItem>
+                                                    <ListItem button>
+                                                        <ListItemIcon>
+                                                            <FiberManualRecordIcon />
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={`Current Capacity - ${n.current_capacity}`} />
+                                                    </ListItem>
+                                                    <ListItem button>
+                                                        <ListItemIcon>
+                                                            <FiberManualRecordIcon />
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={`From Nachchiduwa - ${n.from_nachchiduwa}`} />
+                                                    </ListItem>
+                                                    <ListItem button>
+                                                        <ListItemIcon>
+                                                            <FiberManualRecordIcon />
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={`From Nuwara Wewa - ${n.from_nuwarawewa}`} />
+                                                    </ListItem>
+                                                    <ListItem button>
+                                                        <ListItemIcon>
+                                                            <FiberManualRecordIcon />
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={`From Thisa Wewa - ${n.from_thisawewa}`} />
+                                                    </ListItem>
+                                                    <ListItem button>
+                                                        <ListItemIcon>
+                                                            <FiberManualRecordIcon />
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={`From Thuruwila - ${n.from_thuruwila}`} />
+                                                    </ListItem>
+                                                </List>
+                                            </AccordionDetails>
+                                        </Accordion>
+                                    )}
+                                </div>
                             </AccordionDetails>
                         </Accordion>
                     )}

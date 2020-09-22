@@ -47,7 +47,8 @@ const WaterLevelEdit = (props) => (
             <DateInput disabled label="Date" source="date" />
             <TextInput disabled label="Reservoir Name" source="reservoir.name" />
             <NumberInput source="water_level" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
-            <NumberInput source="water_consumption" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
+            <NumberInput source="water_consumption_domestic" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
+            <NumberInput source="water_consumption_paddy" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
             <NumberInput source="rainfall" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
             <NumberInput source="temperature" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
             <NumberInput source="evaporation" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
