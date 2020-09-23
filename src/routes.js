@@ -6,8 +6,8 @@ import ReservoirsSelectWaterConsumptionPaddy from "./water_consumption_paddy/Res
 import ReservoirsSelectWaterConsumptionDomestic from "./water_consumption_domestic/ReservoirsSelect";
 import ReservoirsSelectWaterLevelPrediction from "./water_level_prediction/ReservoirsSelect";
 import WaterLevelPrediction from "./water_level_prediction/WaterLevelPrediction";
-import ReservoirsSelectWaterConsumptionPrediction from "./water_consumption_prediction/ReservoirsSelect";
-import WaterConsumptionPrediction from "./water_consumption_prediction/WaterConsumptionPrediction";
+import ReservoirsSelectWaterConsumptionPredictionDomestic from "./water_consumption_prediction_domestic/ReservoirsSelect";
+import WaterConsumptionPredictionDomestic from "./water_consumption_prediction_domestic/WaterConsumptionPredictionDomestic";
 import ReservoirsSelectDomesticWaterConsumptionPrediction from "./domestic_water_consumption_prediction/ReservoirsSelect";
 import HouseSelectDomesticWaterConsumptionPrediction from "./domestic_water_consumption_prediction/HouseSelect";
 import DomesticWaterConsumptionPrediction from "./domestic_water_consumption_prediction/DomesticWaterConsumptionPrediction";
@@ -28,13 +28,13 @@ export default [
   />,
   <Route
     exact
-    path="/reservoirs_select_water_consumption_prediction"
-    component={ReservoirsSelectWaterConsumptionPrediction}
+    path="/reservoirs_select_water_consumption_prediction_domestic"
+    component={ReservoirsSelectWaterConsumptionPredictionDomestic}
   />,
   <Route
     exact
-    path="/water_consumption_prediction/:id"
-    component={WaterConsumptionPrediction}
+    path="/water_consumption_prediction_domestic/:id"
+    component={WaterConsumptionPredictionDomestic}
   />,
   <Route
     exact

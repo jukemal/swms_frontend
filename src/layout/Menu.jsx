@@ -29,6 +29,15 @@ const Menu = ({ onMenuClick, dense, logout }) => {
             />
 
             <MenuItemLink
+                to={`/reservoirs_select_water_consumption_prediction_domestic`}
+                primaryText="Water Consumption Prediction Domestic"
+                leftIcon={<TextureIcon />}
+                onClick={onMenuClick}
+                sidebarIsOpen={open}
+                dense={dense}
+            />
+
+            <MenuItemLink
                 to={`/reservoirs_select_water_consumption_prediction`}
                 primaryText="Water Consumption Prediction"
                 leftIcon={<TextureIcon />}
@@ -39,7 +48,7 @@ const Menu = ({ onMenuClick, dense, logout }) => {
 
             <MenuItemLink
                 to={`/reservoirs_select_domestic_water_consumption_prediction`}
-                primaryText="Domestic Water Consumption Prediction"
+                primaryText="Water Consumption Prediction per House"
                 leftIcon={<AcUnitIcon />}
                 onClick={onMenuClick}
                 sidebarIsOpen={open}
