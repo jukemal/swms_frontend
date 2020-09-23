@@ -42,7 +42,7 @@ const ReservoirsSelect = () => {
 
     return (
         <>
-            <AdminTitle title="Water Consumption Prediction - Select Reservoir" />
+            <AdminTitle title="Water Consumption Prediction Paddy - Select Reservoir" />
             <div className={classes.root}>
                 <List component="nav" >
                     {
@@ -51,7 +51,7 @@ const ReservoirsSelect = () => {
                                 key={n.id}
                                 component={Link}
                                 to={{
-                                    pathname: `/water_consumption_prediction/${n.id}/`
+                                    pathname: `/water_consumption_prediction_paddy/${n.id}/`
                                 }}
                             >
                                 <ListItemIcon>

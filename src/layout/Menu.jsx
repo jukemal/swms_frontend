@@ -7,6 +7,9 @@ import TextureIcon from '@material-ui/icons/Texture';
 import SpaIcon from '@material-ui/icons/Spa';
 import AcUnitIcon from '@material-ui/icons/AcUnit';
 import AllOutIcon from '@material-ui/icons/AllOut';
+import BlurOnIcon from '@material-ui/icons/BlurOn';
+import ContactlessIcon from '@material-ui/icons/Contactless';
+import FlareIcon from '@material-ui/icons/Flare';
 
 import Reservoirs from '../reservoirs'
 
@@ -38,9 +41,9 @@ const Menu = ({ onMenuClick, dense, logout }) => {
             />
 
             <MenuItemLink
-                to={`/reservoirs_select_water_consumption_prediction`}
-                primaryText="Water Consumption Prediction"
-                leftIcon={<TextureIcon />}
+                to={`/reservoirs_select_water_consumption_prediction_paddy`}
+                primaryText="Water Consumption Prediction Paddy"
+                leftIcon={<BlurOnIcon />}
                 onClick={onMenuClick}
                 sidebarIsOpen={open}
                 dense={dense}
@@ -85,7 +88,7 @@ const Menu = ({ onMenuClick, dense, logout }) => {
             <MenuItemLink
                 to={`/reservoirs_select_water_consumption_paddy`}
                 primaryText="Water Consumption Paddy"
-                leftIcon={<OpacityIcon />}
+                leftIcon={<ContactlessIcon />}
                 onClick={onMenuClick}
                 sidebarIsOpen={open}
                 dense={dense}
@@ -94,7 +97,7 @@ const Menu = ({ onMenuClick, dense, logout }) => {
             <MenuItemLink
                 to={`/reservoirs_select_water_consumption_domestic`}
                 primaryText="Water Consumption Domestic"
-                leftIcon={<OpacityIcon />}
+                leftIcon={<FlareIcon />}
                 onClick={onMenuClick}
                 sidebarIsOpen={open}
                 dense={dense}

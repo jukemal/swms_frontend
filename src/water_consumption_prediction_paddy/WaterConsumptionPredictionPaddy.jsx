@@ -18,8 +18,7 @@ import {
 } from '@material-ui/core';
 import moment from 'moment'
 import {
-    LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
-    ResponsiveContainer,
+    LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label, ResponsiveContainer,
 } from "recharts";
 
 const useStyles = makeStyles((theme) => ({
@@ -69,7 +68,7 @@ const Title = (props) => {
     );
 };
 
-const ChartDomestic = ({ data_real, data_predicted, reservoir }) => {
+const Chart = ({ data_real, data_predicted, reservoir }) => {
     let series = []
 
     let data = []
@@ -77,7 +76,7 @@ const ChartDomestic = ({ data_real, data_predicted, reservoir }) => {
     data_real.forEach((n) => {
         data.push({
             date: moment(n.date, 'YYYY MM DD').format('X'),
-            value: n.water_consumption_domestic,
+            value: n.water_consumption_paddy,
         })
     })
 
@@ -91,7 +90,7 @@ const ChartDomestic = ({ data_real, data_predicted, reservoir }) => {
     data_predicted.forEach((n) => {
         data.push({
             date: moment(n.date, 'YYYY MM DD').format('X'),
-            value: n.water_consumption_domestic,
+            value: n.water_consumption_paddy,
         })
     })
 
@@ -102,7 +101,7 @@ const ChartDomestic = ({ data_real, data_predicted, reservoir }) => {
 
     return (
         <>
-            <Title>{`Water Consumption Domestic Prediction - ${reservoir.name}`}</Title>
+            <Title>{`Water Consumption Prediction Paddy - ${reservoir.name}`}</Title>
             <ResponsiveContainer width='95%' height={500}>
                 <LineChart
                     margin={{
@@ -120,78 +119,14 @@ const ChartDomestic = ({ data_real, data_predicted, reservoir }) => {
                         tickFormatter={(unixTime) => moment.unix(unixTime).format('YYYY MMM')}
                         type="number"
                         allowDuplicatedCategory={false} />
-                    <YAxis dataKey="value" name='Water Level' />
-                    <Tooltip labelFormatter={(label) => moment.unix(label).format('YYYY MMM')} />
-                    <Legend />
-                    {series.map((s, i) => (
-                        <Line
-                            dataKey="value"
-                            data={s.data}
-                            name={s.name}
-                            key={s.name}
-                            strokeWidth={2}
-                            stroke={(i === 0) ? '#00ff00' : '#ff0000'}
-                            dot={i === 0 ? { stroke: '#00ff00', strokeWidth: 2 } : { stroke: '#ff0000', strokeWidth: 2 }}
+                    <YAxis dataKey="value" name='Water Level' >
+                        <Label
+                            value="Water Consumption (Gallons)"
+                            position="left"
+                            angle={-90}
+                            style={{ textAnchor: 'middle' }}
                         />
-                    ))}
-                </LineChart>
-            </ResponsiveContainer>
-        </>
-    );
-};
-
-const ChartPaddy = ({ data_real, data_predicted, reservoir }) => {
-    let series = []
-
-    let data = []
-
-    data_real.forEach((n) => {
-        data.push({
-            date: moment(n.date, 'YYYY MM DD').format('X'),
-            value: n.water_consumption_paddy,
-        })
-    })
-
-    series.push({
-        name: "Real",
-        data: data
-    })
-
-    data = []
-
-    data_predicted.forEach((n) => {
-        data.push({
-            date: moment(n.date, 'YYYY MM DD').format('X'),
-            value: n.water_consumption_paddy,
-        })
-    })
-
-    series.push({
-        name: "Predicted",
-        data: data
-    })
-
-    return (
-        <>
-            <Title>{`Water Consumption Paddy Prediction - ${reservoir.name}`}</Title>
-            <ResponsiveContainer width='95%' height={500}>
-                <LineChart
-                    margin={{
-                        top: 16,
-                        right: 16,
-                        bottom: 0,
-                        left: 24,
-                    }}
-                >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis
-                        dataKey="date"
-                        domain={['auto', 'auto']}
-                        name='Time'
-                        tickFormatter={(unixTime) => moment.unix(unixTime).format('YYYY MMM')}
-                        type="number"
-                        allowDuplicatedCategory={false} />
-                    <YAxis dataKey="value" name='Water Level' />
+                    </YAxis>
                     <Tooltip labelFormatter={(label) => moment.unix(label).format('YYYY MMM')} />
                     <Legend />
                     {series.map((s, i) => (
@@ -222,22 +157,19 @@ const DataTable = ({ rows_real, rows_predicted, reservoir }) => {
                     <TableHead>
                         <TableRow>
                             <TableCell>Date</TableCell>
-                            <TableCell>Water Consumption Domestic</TableCell>
-                            <TableCell>Water Consumption Paddy</TableCell>
+                            <TableCell>Water Consumption Paddy (Gallons)</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {rows_real.map((row) => (
                             <TableRow key={row.id}>
                                 <TableCell>{row.date}</TableCell>
-                                <TableCell>{row.water_consumption_domestic}</TableCell>
                                 <TableCell>{row.water_consumption_paddy}</TableCell>
                             </TableRow>
                         ))}
                         {rows_predicted.map((row) => (
                             <TableRow key={row.id} className={classes.tableRow}>
                                 <TableCell>{row.date}</TableCell>
-                                <TableCell>{row.water_consumption_domestic}</TableCell>
                                 <TableCell>{row.water_consumption_paddy}</TableCell>                            </TableRow>
                         ))}
                     </TableBody>
@@ -248,14 +180,14 @@ const DataTable = ({ rows_real, rows_predicted, reservoir }) => {
 };
 
 
-const WaterConsumptionPrediction = (props) => {
+const WaterConsumptionPredictionPaddy = (props) => {
     const classes = useStyles();
 
     let { id } = useParams();
 
     const { data, loading, error } = useQueryWithStore({
         type: 'getOne',
-        resource: 'water_consumption_prediction',
+        resource: 'water_consumption_prediction_paddy',
         payload: { id: id }
     });
 
@@ -265,7 +197,7 @@ const WaterConsumptionPrediction = (props) => {
 
     return (
         <Card>
-            <AdminTitle title={`Water Level Prediction - ${data.reservoir.name}`} />
+            <AdminTitle title={`Water Consumption Prediction Paddy - ${data.reservoir.name}`} />
             <CardContent>
                 <main className={classes.content}>
                     <div className={classes.appBarSpacer} />
@@ -273,12 +205,7 @@ const WaterConsumptionPrediction = (props) => {
                         <Grid container spacing={3}>
                             <Grid item xs={12}>
                                 <Paper >
-                                    <ChartDomestic data_real={data.real} data_predicted={data.predicted} reservoir={data.reservoir} />
-                                </Paper>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Paper >
-                                    <ChartPaddy data_real={data.real} data_predicted={data.predicted} reservoir={data.reservoir} />
+                                    <Chart data_real={data.real} data_predicted={data.predicted} reservoir={data.reservoir} />
                                 </Paper>
                             </Grid>
                             <Grid item xs={12}>
@@ -294,4 +221,4 @@ const WaterConsumptionPrediction = (props) => {
     );
 }
 
-export default WaterConsumptionPrediction;
+export default WaterConsumptionPredictionPaddy;
