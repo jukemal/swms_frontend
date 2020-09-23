@@ -4,7 +4,7 @@ import { Typography, Card, CardContent, Box } from '@material-ui/core';
 import moment from 'moment';
 
 const WaterLevelTitle = ({ record }) => {
-    return <span>Water Level & Water Consumption</span>;
+    return <span>Water Level</span>;
 };
 
 const Aside = ({ record }) => (
@@ -37,8 +37,6 @@ const WaterLevelShow = (props) => (
             <FunctionField label="Date" render={record => `${record.date.split('-')[0]} - ${record.date.split('-')[1]}`} />
             <TextField source="reservoir.name" label="Reservoir Name" />
             <TextField source="water_level" />
-            <NumberField source="water_consumption_domestic" />
-            <NumberField source="water_consumption_paddy" />
             <NumberField source="rainfall" />
             <NumberField source="temperature" />
             <NumberField source="evaporation" />

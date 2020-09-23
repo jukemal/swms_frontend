@@ -11,8 +11,8 @@ import {
     number,
 } from "react-admin";
 
-const ReservoirsCreate = (props) => (
-    <Create title="Create Water Level & Consumption" {...props}>
+const WaterLevelCreate = (props) => (
+    <Create title="Create Water Level" {...props}>
         <SimpleForm variant="standard" margin="normal" redirect="list">
             <DateInput label="Date" source="date" />
             <ReferenceInput label="Reservoir Name" source="id" reference="reservoirs">
@@ -20,8 +20,6 @@ const ReservoirsCreate = (props) => (
             </ReferenceInput>
             {/* <TextInput disabled label="Reservoir Name" source="reservoir.name" /> */}
             <NumberInput source="water_level" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
-            <NumberInput source="water_consumption_domestic" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
-            <NumberInput source="water_consumption_paddy" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
             <NumberInput source="rainfall" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
             <NumberInput source="temperature" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
             <NumberInput source="evaporation" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
@@ -29,4 +27,4 @@ const ReservoirsCreate = (props) => (
     </Create>
 );
 
-export default ReservoirsCreate;
+export default WaterLevelCreate;

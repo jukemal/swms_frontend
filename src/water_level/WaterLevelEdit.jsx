@@ -13,7 +13,7 @@ import { Typography, Card, CardContent, Box } from '@material-ui/core';
 import moment from 'moment';
 
 const WaterLevelTitle = ({ record }) => {
-    return <span>Edit Water Level & Water Consumption</span>;
+    return <span>Edit Water Level</span>;
 };
 
 const Aside = ({ record }) => (
@@ -47,8 +47,6 @@ const WaterLevelEdit = (props) => (
             <DateInput disabled label="Date" source="date" />
             <TextInput disabled label="Reservoir Name" source="reservoir.name" />
             <NumberInput source="water_level" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
-            <NumberInput source="water_consumption_domestic" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
-            <NumberInput source="water_consumption_paddy" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
             <NumberInput source="rainfall" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
             <NumberInput source="temperature" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />
             <NumberInput source="evaporation" validate={[required(), number(), minValue(1, "Should be grater than 0.")]} />

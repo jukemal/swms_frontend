@@ -56,7 +56,7 @@ const ReservoirsSelect = () => {
                                     search: stringify({
                                         page: 1,
                                         perPage: 25,
-                                        filter: JSON.stringify({ reservoir_name: n.name }),
+                                        filter: JSON.stringify({ reservoir_id: n.id }),
                                     }),
                                 }}
                             >
