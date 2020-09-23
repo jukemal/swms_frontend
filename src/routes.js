@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Route } from "react-router-dom";
 
-import ReservoirsSelect from "./water_level/ReservoirsSelect";
+import ReservoirsSelectWaterLevel from "./water_level/ReservoirsSelect";
+import ReservoirsSelectWaterConsumptionPaddy from "./water_consumption_paddy/ReservoirsSelect";
 import ReservoirsSelectWaterLevelPrediction from "./water_level_prediction/ReservoirsSelect";
 import WaterLevelPrediction from "./water_level_prediction/WaterLevelPrediction";
 import ReservoirsSelectWaterConsumptionPrediction from "./water_consumption_prediction/ReservoirsSelect";
@@ -64,5 +65,14 @@ export default [
     path="/paddy_water_distribution_plan"
     component={PaddyWaterDistributionPlan}
   />,
-  <Route exact path="/reservoirs_select" component={ReservoirsSelect} />,
+  <Route
+    exact
+    path="/reservoirs_select_water_level"
+    component={ReservoirsSelectWaterLevel}
+  />,
+  <Route
+    exact
+    path="/reservoirs_select_water_consumption_paddy"
+    component={ReservoirsSelectWaterConsumptionPaddy}
+  />,
 ];

@@ -8,6 +8,7 @@ import customRoutes from "./routes";
 
 import Reservoirs from "./reservoirs";
 import WaterLevel from "./water_level";
+import WaterConsumptionPaddy from './water_consumption_paddy'
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -35,6 +36,7 @@ const App = () => (
     customRoutes={customRoutes}
   >
     <Resource name="water_level" {...WaterLevel} />
+    <Resource name="water_consumption_paddy" {...WaterConsumptionPaddy} />
     <Resource name="reservoirs" {...Reservoirs} />
   </Admin>
 );
